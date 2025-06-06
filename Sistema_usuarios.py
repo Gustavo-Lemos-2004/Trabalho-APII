@@ -28,8 +28,7 @@ def cadastrar_usuario():
     email = str(input('E-mail do usuario a cadastrar: '))
     senha = str(input('Senha do usuario a cadastrar: '))
     cpf = str(input('CPF somentecom números: '))
-    with open('users.txt', 'a', encoding='utf-8') as arquivo:
-        arquivo.write(f"{nome}\n{email}\n{senha}\n{cpf}\n\n")
+    
 
 
     with open('D:/Algoritmos e Programação II/TrabalhoSITE/imagens/foto_perfil.jpg', 'rb') as f:
