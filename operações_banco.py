@@ -33,5 +33,4 @@ def inserir_hotel():
     cursor.execute(sql, (primeiro, segundo))
     connect.commit()
     connect.close() 
-    with open('hoteis.txt', 'a', encoding='utf-8') as arquivo:
-        arquivo.write(f"{primeiro}\n{segundo}\n\n")
+
