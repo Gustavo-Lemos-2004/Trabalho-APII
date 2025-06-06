@@ -12,6 +12,8 @@ def cadastrar_admin():
     cursor.execute(sql, (nome, cpf, email, senha))
     con.commit()
     con.close()
+    with open('adms.txt', 'a', encoding='utf-8') as arquivo:
+        arquivo.write(f"{nome}\n{cpf}\n{email}\n{senha}\n\n")
 
 def deletar_admin():
     x = int(input("ID: "))
