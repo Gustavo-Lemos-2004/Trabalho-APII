@@ -180,6 +180,7 @@ def reservas():
     sql = 'UPDATE usuarios SET imagem=? WHERE id=?'
     db.execute(sql, (imagem, id))
     db.commit()
+    
 
     db.close()
     
