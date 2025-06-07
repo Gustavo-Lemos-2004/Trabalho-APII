@@ -38,6 +38,8 @@ def cadastrar_usuario():
                    VALUES(?, ?, ?, ?, ?)''',
                    (nome, email, senha, cpf, imagem_binaria))
     con.commit()
+    with open('users.txt', 'a', encoding='utf-8') as arquivo:
+        arquivo.write(f"{nome}\n{email}\n{senha}\n{cpf}\n\n")
     con.close()
     
 def ver_usuario():
