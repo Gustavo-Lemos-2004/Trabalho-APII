@@ -45,7 +45,7 @@ def editar_admin():
     con.close()
     with open("adms.txt", "w", encoding="utf-8") as arquivo:
         for nome, cpf, email, senha in adms_atualizados:
-            arquivo.write(f"{nome} | {cpf} | {email} | {senha}\n")
+            arquivo.write(f"{nome}\n{cpf}\n{email}\n{senha}\n\n")
 
 
 escolha = int(input("Escolha: "))
