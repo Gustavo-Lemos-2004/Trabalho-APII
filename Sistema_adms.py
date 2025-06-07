@@ -39,8 +39,14 @@ def editar_admin():
     cursor = con.cursor()
     sql = "UPDATE administradores SET nome=?, cnpj=?, email=?, senha=? WHERE id=?"
     cursor.execute(sql, (nome, cpf, email, senha, x))
+    adms_atualizados = cursor.fetchall()
+    conn.close()
     con.commit()
     con.close()
+    with open("adms.txt", "w", encoding="utf-8") as arquivo:
+        for nome, cpf, email, senha in adms_atualizados:
+            arquivo.write(f"{nome} | {cpf} | {email} | {senha}\n")
+
 
 escolha = int(input("Escolha: "))
 if escolha == 1:
