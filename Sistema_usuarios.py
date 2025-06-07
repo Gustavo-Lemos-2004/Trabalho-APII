@@ -101,10 +101,12 @@ def deletar_usuario():
     acao = str(input(f'Tem certeza que deseja deletar o cadastro do usuário de id = {id_usuario}?')).lower()
     if acao == 'sim' or acao == 's':
         cursor.execute('DELETE FROM usuarios WHERE id = ?',(id_usuario,))
-
+    todos_usuarios=cursor.fetchall()
     con.commit()
     con.close()
-
+    with open("users.txt", "w", encoding="utf-8") as arquivo:
+        for nome, email, senha, cpf in todos_usuarios:
+            arquivo.write(f"{nome} | {email} | {senha} | {cpf}\n")
 
 def main():
 
