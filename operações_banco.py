@@ -32,5 +32,7 @@ def inserir_hotel():
     sql = "INSERT INTO teste (titulo, descricao) VALUES (?, ?)"
     cursor.execute(sql, (primeiro, segundo))
     connect.commit()
+    with open('hoteis.txt', 'a', encoding='utf-8') as arquivo:
+        arquivo.write(f"{primeiro}\n{segundo}\n\n")
     connect.close() 
 
