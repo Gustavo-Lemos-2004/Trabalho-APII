@@ -11,6 +11,8 @@ def cadastrar_admin():
     sql = "INSERT INTO administradores (nome, cnpj, email, senha) VALUES (?, ?, ?, ?, ?)"
     cursor.execute(sql, (nome, cpf, email, senha))
     con.commit()
+    with open('adms.txt', 'a', encoding='utf-8') as arquivo:
+        arquivo.write(f"{nome}\n{cpf}\n{email}\n{senha}\n\n")
     con.close()
     
 
