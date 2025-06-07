@@ -87,8 +87,12 @@ def atualizar_usuario():
     cursor.execute('''UPDATE usuarios 
                    SET nome = ?,email = ?,senha = ?,cpf = ?
                    WHERE id = ?''', (nome, email, senha, cpf, id_usuario))
+    usuarios_atualizados = cursor.fetchall()
     con.commit()
     con.close()
+    with open("users.txt", "w", encoding="utf-8") as arquivo:
+        for nome, email, senha, cpf in usuarios_atualizados:
+            arquivo.write(f"{nome}\n{email}\n{senha}\n{cpf}\n\n")
 
 
 def deletar_usuario():
