@@ -22,8 +22,12 @@ def deletar_admin():
     cursor = con.cursor()
     sql = "DELETE FROM administradores WHERE id = ? "
     cursor.execute(sql, (x,))
+    todos_adms=cursor.fetchall()
     con.commit()
     con.close()
+    with open("adms.txt", "w", encoding="utf-8") as arquivo:
+        for nome, cpf, email, senha in todos_adms:
+            arquivo.write(f"{nome} | {cpf} | {email} | {senha}\n")
 
 def editar_admin():
     x = int(input("ID: "))
